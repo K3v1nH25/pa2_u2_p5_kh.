@@ -48,7 +48,7 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 		this.iEstudianteService.actualizar(p1);
 		
 		//Eliminar
-		//this.iEstudianteService.borrar(1);
+		this.iEstudianteService.borrar(1);
 		
 		
 		
@@ -72,7 +72,7 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 		this.iAlumnoService.actualizar(p2);
 		
 		//Eliminar
-		//this.iAlumnoService.borrar(1);
+		this.iAlumnoService.borrar(1);
 	}
 	
 	
