@@ -40,5 +40,6 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 		Ciudadano ciud1 = this.ciudadanoService.buscar(1);
 		empl.setCiudadano(ciud1);
 		this.empleadoService.guardar(empl);
+		
 	}
 }
