@@ -73,6 +73,7 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 		
 		//Eliminar
 		this.iAlumnoService.borrar(1);
+		
 	}
 	
 	
