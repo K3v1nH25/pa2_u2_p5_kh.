@@ -8,7 +8,7 @@ import com.uce.edu.repository.modelo.Hotel;
 
 @Service
 public class HotelServiceImpl implements IHotelService {
-	
+
 	@Autowired
 	private IHotelRepository ihotelRepository;
 

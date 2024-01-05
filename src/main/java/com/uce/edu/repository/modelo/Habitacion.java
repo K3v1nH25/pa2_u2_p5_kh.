@@ -19,42 +19,48 @@ public class Habitacion {
 	@SequenceGenerator(name = "seq_habitacion", sequenceName = "seq_habitacion", allocationSize = 1)
 	@Column(name = "habi_id")
 	private Integer id;
-	
+
 	@Column(name = "habi_numero")
 	private String numero;
-	
+
 	@Column(name = "habi_clas")
 	private String clas;
-	
+
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "habi_id_hotel")
 	private Hotel hotel;
 
-	//SET Y GET
+	// SET Y GET
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getNumero() {
 		return numero;
 	}
+
 	public void setNumero(String numero) {
 		this.numero = numero;
 	}
+
 	public String getClas() {
 		return clas;
 	}
+
 	public void setClas(String clas) {
 		this.clas = clas;
 	}
+
 	public Hotel getHotel() {
 		return hotel;
 	}
+
 	public void setHotel(Hotel hotel) {
 		this.hotel = hotel;
 	}
-	
 
 }
