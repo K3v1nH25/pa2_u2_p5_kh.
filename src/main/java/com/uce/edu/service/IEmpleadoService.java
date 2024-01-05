@@ -10,5 +10,4 @@ public interface IEmpleadoService {
 	public void actualizar(Empleado empleado);
 
 	public void borrar(Integer id);
-
 }

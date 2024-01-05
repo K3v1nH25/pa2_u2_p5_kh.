@@ -8,7 +8,7 @@ import com.uce.edu.repository.modelo.Empleado;
 
 @Service
 public class EmpleadoServiceImpl implements IEmpleadoService {
-	
+
 	@Autowired
 	private IEmpleadoRepository iempleadoRepository;
 
@@ -29,14 +29,14 @@ public class EmpleadoServiceImpl implements IEmpleadoService {
 	public void actualizar(Empleado empleado) {
 		// TODO Auto-generated method stub
 		this.iempleadoRepository.actualizar(empleado);
-		
+
 	}
 
 	@Override
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
 		this.iempleadoRepository.eliminar(id);
-		
+
 	}
 
 }

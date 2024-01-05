@@ -64,4 +64,5 @@ public class Empleado {
 	public void setCiudadano(Ciudadano ciudadano) {
 		this.ciudadano = ciudadano;
 	}
+	
 }

@@ -1,5 +1,7 @@
 package com.uce.edu;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,16 +10,22 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.uce.edu.repository.modelo.Ciudadano;
+import com.uce.edu.repository.modelo.Empleado;
 import com.uce.edu.repository.modelo.Habitacion;
 import com.uce.edu.repository.modelo.Hotel;
+import com.uce.edu.service.ICiudadanoService;
+import com.uce.edu.service.IEmpleadoService;
 import com.uce.edu.service.IHotelService;
 
 @SpringBootApplication
 public class Pa2U2P5KhApplication implements CommandLineRunner {
 
 	@Autowired
-	private IHotelService hotelService;
+	private IEmpleadoService empleadoService;
 
+	@Autowired
+	private ICiudadanoService ciudadanoService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5KhApplication.class, args);
@@ -26,28 +34,39 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
+
+		Ciudadano ciud = new Ciudadano();
+		ciud.setNombre("Karen");
+		ciud.setApellido("Chica");
+
+		Ciudadano ciud1 = new Ciudadano();
+		ciud1.setNombre("Aylin");
+		ciud1.setApellido("Hurtad");
+
+		this.ciudadanoService.guardar(ciud);
+		this.ciudadanoService.guardar(ciud1);
 		
-		Hotel hote = new Hotel();
-		hote.setDireccion("Colmena");
-		hote.setNombre("el  mirador");
+		Ciudadano ciud3 = new Ciudadano();
+		ciud3.setApellido("Rivera");
+		this.ciudadanoService.actualizar(ciud);
 		
-		Habitacion h1 = new Habitacion();
-		h1.setClas("Presidencial");
-		h1.setNumero("A1");
-		h1.setHotel(hote);
+		this.ciudadanoService.borrar(1);
+
+		Empleado empl = new Empleado();
+		empl.setFechaIngreso(LocalDateTime.now());
+		empl.setSalario(new BigDecimal(2500));
+		empl.setCiudadano(ciud);
+
+		Empleado empl1 = new Empleado();
+		empl1.setFechaIngreso(LocalDateTime.now());
+		empl1.setSalario(new BigDecimal(2000));
+		empl1.setCiudadano(ciud1);
+
+
+		this.empleadoService.guardar(empl);
+		this.empleadoService.guardar(empl1);
 		
-		Habitacion h2 = new Habitacion();
-		h2.setClas("Economico");
-		h2.setNumero("A2");
-		h2.setHotel(hote);
-		
-		List<Habitacion> habitaciones = new ArrayList<>();
-		habitaciones.add(h1);
-		habitaciones.add(h2);
-		hote.setHabitaciones(habitaciones);
-		
-		this.hotelService.guardar(hote);
-		
+		this.empleadoService.borrar(1);
 
 	}
 }

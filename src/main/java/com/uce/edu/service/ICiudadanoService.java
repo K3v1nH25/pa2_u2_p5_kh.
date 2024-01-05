@@ -10,5 +10,4 @@ public interface ICiudadanoService {
 	public void actualizar(Ciudadano ciudadano);
 
 	public void borrar(Integer id);
-
 }

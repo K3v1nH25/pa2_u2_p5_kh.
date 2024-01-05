@@ -11,7 +11,7 @@ import jakarta.transaction.Transactional;
 @Repository
 @Transactional
 public class EmpleadoRepositoryImpl implements IEmpleadoRepository {
-	
+
 	@PersistenceContext
 	private EntityManager entityManager;
 
@@ -32,7 +32,7 @@ public class EmpleadoRepositoryImpl implements IEmpleadoRepository {
 	public void actualizar(Empleado empleado) {
 		// TODO Auto-generated method stub
 		this.entityManager.merge(empleado);
-		
+
 	}
 
 	@Override
@@ -40,7 +40,7 @@ public class EmpleadoRepositoryImpl implements IEmpleadoRepository {
 		// TODO Auto-generated method stub
 		Empleado empl = this.seleccionar(id);
 		this.entityManager.remove(empl);
-		
+
 	}
 
 }
