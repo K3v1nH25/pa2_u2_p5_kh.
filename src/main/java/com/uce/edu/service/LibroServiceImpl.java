@@ -8,14 +8,14 @@ import com.uce.edu.repository.modelo.Libro;
 
 @Service
 public class LibroServiceImpl implements ILibroService {
-	
+
 	@Autowired
 	private ILibroRepository ilibroRepository;
 
 	@Override
 	public Libro buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return null;
+		return this.ilibroRepository.seleccionar(id);
 	}
 
 	@Override
@@ -28,12 +28,14 @@ public class LibroServiceImpl implements ILibroService {
 	@Override
 	public void actualizar(Libro libro) {
 		// TODO Auto-generated method stub
+		this.ilibroRepository.actualizar(libro);
 
 	}
 
 	@Override
 	public void borrar(Integer id) {
 		// TODO Auto-generated method stub
+		this.ilibroRepository.eliminar(id);
 
 	}
 

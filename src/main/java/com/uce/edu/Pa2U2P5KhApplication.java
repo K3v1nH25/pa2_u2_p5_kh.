@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.repository.modelo.Autor;
 import com.uce.edu.repository.modelo.Libro;
+import com.uce.edu.service.IAutorService;
 import com.uce.edu.service.ILibroService;
 
 @SpringBootApplication
@@ -18,6 +19,9 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 
 	@Autowired
 	private ILibroService iLibroService;
+	
+	@Autowired
+	private IAutorService autorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5KhApplication.class, args);
@@ -27,7 +31,31 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 
-		// Un libro que tiene dos autores
+		Libro libro1 = new Libro();
+		libro1.setFechaPublicacion(LocalDateTime.now());
+		libro1.setTitulo("Programacion Avanzada");
+		
+		this.iLibroService.guardar(libro1);
+		this.iLibroService.buscar(1);
+		
+		libro1.setFechaPublicacion(LocalDateTime.of(2024, 1, 3, 12, 20));
+		this.iLibroService.actualizar(libro1);
+		
+		this.iLibroService.borrar(7);
+		
+		Autor autor3 = new Autor();
+		autor3.setNacionalidad("Peruano");
+		autor3.setNombre("Jorge luna");
+		
+		this.autorService.guardar(autor3);
+		
+		autor3.setNacionalidad("Colombiano");
+		this.autorService.actualizar(autor3);
+		
+		this.autorService.buscar(4);
+		
+		this.autorService.borrar(6);
+		
 
 		Libro libro = new Libro();
 		libro.setTitulo("Java");
