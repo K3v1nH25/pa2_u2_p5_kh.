@@ -2,7 +2,6 @@ package com.uce.edu.repository.modelo;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -10,9 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -31,7 +29,8 @@ public class Libro2 {
 
 	@Column(name = "libr_fecha_publicacion")
 	private LocalDateTime fechaPublicacion;
-	
+
+	@OneToMany(mappedBy = "libro2", cascade = CascadeType.ALL)
 	private List<AutorLibro> autoresLibros;
 
 	// SET Y GET
@@ -57,6 +56,14 @@ public class Libro2 {
 
 	public void setFechaPublicacion(LocalDateTime fechaPublicacion) {
 		this.fechaPublicacion = fechaPublicacion;
+	}
+
+	public List<AutorLibro> getAutoresLibros() {
+		return autoresLibros;
+	}
+
+	public void setAutoresLibros(List<AutorLibro> autoresLibros) {
+		this.autoresLibros = autoresLibros;
 	}
 
 }
