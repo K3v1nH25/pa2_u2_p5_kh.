@@ -3,9 +3,12 @@ package com.uce.edu.repository;
 import org.springframework.stereotype.Repository;
 
 import com.uce.edu.repository.modelo.Ciudadano;
+import com.uce.edu.repository.modelo.Empleado;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Repository
@@ -41,6 +44,24 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 		Ciudadano ciud = this.seleccionar(id);
 		this.entityManager.remove(ciud);
 
+	}
+
+	@Override
+	public Empleado sellecionarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		TypedQuery<Empleado> myQuery = this.entityManager
+				.createQuery("SELECT e FROM Empleado e WHERE e.ciudadano.cedula", Empleado.class);
+		myQuery.setParameter("cedula", cedula);
+		return myQuery.getSingleResult();
+	}
+
+	@Override
+	public Ciudadano seleccionarPorCedulaCiud(String cedula) {
+		// TODO Auto-generated method stub
+		Query myQuery = this.entityManager.createNativeQuery("SLECT *FROM ciudadano c WHERE c.ciud_cedula = :cedula",
+				Ciudadano.class);
+		myQuery.setParameter("cedula", cedula);
+		return (Ciudadano) myQuery.getSingleResult();
 	}
 
 }

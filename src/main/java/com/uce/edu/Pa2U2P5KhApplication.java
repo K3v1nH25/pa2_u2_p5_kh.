@@ -1,5 +1,6 @@
 package com.uce.edu;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -13,8 +14,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uce.edu.repository.modelo.Autor2;
 import com.uce.edu.repository.modelo.AutorLibro;
+import com.uce.edu.repository.modelo.Ciudadano;
+import com.uce.edu.repository.modelo.Empleado;
 import com.uce.edu.repository.modelo.Libro;
 import com.uce.edu.repository.modelo.Libro2;
+import com.uce.edu.service.ICiudadanoService;
+import com.uce.edu.service.IEmpleadoService;
 import com.uce.edu.service.ILibroService;
 
 @SpringBootApplication
@@ -28,7 +33,10 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	// 3. Criteria API Query
 
 	@Autowired
-	private ILibroService iLibroService;
+	private ICiudadanoService iCiudadanoService;
+
+	@Autowired
+	private IEmpleadoService empleadoService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5KhApplication.class, args);
@@ -38,30 +46,21 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 
-		System.out.println("Query");
-		List<Libro> lista = this.iLibroService.buscarPorFecha(LocalDateTime.of(2023, 1, 1, 7, 15));
-		System.out.println(lista);
-		for (Libro libro : lista) {
-			System.out.println(libro);
-		}
-		System.out.println("TypedQuery");
+		/*
+		 * Ciudadano ciud = new Ciudadano(); ciud.setNombre("Juan");
+		 * ciud.setApellido("Hurtado"); ciud.setCedula("1724");
+		 * 
+		 * Empleado empleado = new Empleado(); empleado.setFechaIngreso(null);
+		 * empleado.setSalario(new BigDecimal(550)); empleado.setCiudadano(ciud);
+		 * 
+		 * ciud.setEmpleado(empleado);
+		 */
 
-		Libro libro = this.iLibroService.buscarPorTitulo("Java I");
-		System.out.println(libro);
+		Empleado empleado = this.iCiudadanoService.buscarPorCedula("1724693111");
+		System.out.println(empleado);
 
-		List<Libro> lista2 = this.iLibroService.buscarPorFechaPubli(LocalDateTime.of(2023, 1, 1, 7, 15));
-		for (Libro libro1 : lista2) {
-			System.out.println(libro1);
-		}
-
-		System.out.println("NamedQuery");
-		Libro li = this.iLibroService.buscarPorTitulo("Programacion I");
-		System.out.println(li);
-
-		List<Libro> lista3 = this.iLibroService.buscarPorFechaPubliNamed(LocalDateTime.of(2023, 1, 1, 6, 15));
-		for (Libro libro1 : lista3) {
-			System.out.println(libro1);
-		}
+		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1724693111");
+		System.out.println(ciudadano);
 
 	}
 
