@@ -1,5 +1,7 @@
 package com.uce.edu.repository.modelo;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,8 +30,28 @@ public class Ciudadano {
 	@Column(name = "ciud_cedula")
 	private String cedula;
 
+	@Column(name = "ciud_codigo")
+	private String codigo;
+
+	@Column(name = "ciud_fecha_nacimeinto")
+	private LocalDateTime fechaNacimeinto;
+
+	@Column(name = "ciud_estatura")
+	private String estatura;
+
+	@Column(name = "ciud_peso")
+	private String peso;
+
+	@Column(name = "ciud_genero")
+	private String genero;
+
+	@Column(name = "ciud_empleo")
+	private String empleo;
+
 	@OneToOne(mappedBy = "ciudadano")
 	private Empleado empleado;
+
+	// getters and setters
 
 	public Integer getId() {
 		return id;
@@ -69,6 +91,61 @@ public class Ciudadano {
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
+	}
+
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public LocalDateTime getFechaNacimeinto() {
+		return fechaNacimeinto;
+	}
+
+	public void setFechaNacimeinto(LocalDateTime fechaNacimeinto) {
+		this.fechaNacimeinto = fechaNacimeinto;
+	}
+
+	public String getEstatura() {
+		return estatura;
+	}
+
+	public void setEstatura(String estatura) {
+		this.estatura = estatura;
+	}
+
+	public String getPeso() {
+		return peso;
+	}
+
+	public void setPeso(String peso) {
+		this.peso = peso;
+	}
+
+	public String getGenero() {
+		return genero;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public String getEmpleo() {
+		return empleo;
+	}
+
+	public void setEmpleo(String empleo) {
+		this.empleo = empleo;
+	}
+
+	@Override
+	public String toString() {
+		return "Ciudadano [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula
+				+ ", codigo=" + codigo + ", fechaNacimeinto=" + fechaNacimeinto + ", estatura=" + estatura + ", peso="
+				+ peso + ", genero=" + genero + ", empleo=" + empleo + ", empleado=" + empleado + "]";
 	}
 
 }

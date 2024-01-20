@@ -1,5 +1,7 @@
 package com.uce.edu.service;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -50,6 +52,54 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 	public Ciudadano buscarPorCedulaCiu(String cedula) {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorCedulaCiud(cedula);
+	}
+
+	@Override
+	public Empleado buscarPorNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorNombre(nombre);
+	}
+
+	@Override
+	public Ciudadano buscarPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorApellido(apellido);
+	}
+
+	@Override
+	public Empleado buscarPorCodigo(String codigo) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorCodigo(codigo);
+	}
+
+	@Override
+	public Ciudadano buscarPorFechaNacimiento(LocalDateTime fechaNacimiento) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorFechaNacimiento(fechaNacimiento);
+	}
+
+	@Override
+	public Empleado buscarPorEstatura(String estatura) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorEstatura(estatura);
+	}
+
+	@Override
+	public Ciudadano buscarPorPeso(String peso) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorPeso(peso);
+	}
+
+	@Override
+	public Empleado buscarPorGenero(String genero) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorGenero(genero);
+	}
+
+	@Override
+	public Ciudadano buscarPorEmpleo(String empleo) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepository.seleccionarPorEmpleo(empleo);
 	}
 
 }

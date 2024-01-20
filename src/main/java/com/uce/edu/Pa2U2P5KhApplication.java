@@ -47,20 +47,53 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 		// TODO Auto-generated method stub
 
 		/*
-		 * Ciudadano ciud = new Ciudadano(); ciud.setNombre("Juan");
-		 * ciud.setApellido("Hurtado"); ciud.setCedula("1724");
+		 * Ciudadano ciud = new Ciudadano(); ciud.setNombre("kevin");
+		 * ciud.setApellido("Hurtado"); ciud.setCedula("1724"); ciud.setCodigo("1A");
+		 * ciud.setFechaNacimeinto(LocalDateTime.of(1997, 9, 9, 10, 0));
+		 * ciud.setEstatura("1.80"); ciud.setPeso("50"); ciud.setGenero("Masculino");
+		 * ciud.setEmpleo("Jefe de bodega");
 		 * 
-		 * Empleado empleado = new Empleado(); empleado.setFechaIngreso(null);
-		 * empleado.setSalario(new BigDecimal(550)); empleado.setCiudadano(ciud);
+		 * Ciudadano ciud2 = new Ciudadano(); ciud2.setNombre("Aylin");
+		 * ciud2.setApellido("Mero"); ciud2.setCedula("1750"); ciud2.setCodigo("2B");
+		 * ciud2.setFechaNacimeinto(LocalDateTime.of(2000, 6, 7, 8, 0));
+		 * ciud2.setEstatura("1.50"); ciud2.setPeso("45"); ciud2.setGenero("Femenino");
+		 * ciud2.setEmpleo("Jefe de caja");
 		 * 
-		 * ciud.setEmpleado(empleado);
+		 * this.iCiudadanoService.guardar(ciud); this.iCiudadanoService.guardar(ciud2);
 		 */
 
-		Empleado empleado = this.iCiudadanoService.buscarPorCedula("1724693111");
-		System.out.println(empleado);
+		////////////////////////////////////////////
 
-		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1724693111");
+		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1724");
 		System.out.println(ciudadano);
+
+		Ciudadano ciudadano2 = this.iCiudadanoService.buscarPorApellido("Mero");
+		System.out.println(ciudadano2);
+
+		Ciudadano ciudadano3 = this.iCiudadanoService.buscarPorFechaNacimiento(LocalDateTime.of(1997, 9, 9, 10, 0));
+		System.out.println(ciudadano3);
+
+		Ciudadano ciudadano4 = this.iCiudadanoService.buscarPorPeso("45");
+		System.out.println(ciudadano4);
+
+		Ciudadano ciudadano5 = this.iCiudadanoService.buscarPorEmpleo("Jefe de bodega");
+		System.out.println(ciudadano5);
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1724");
+
+		System.out.println(ciudadano);
+
+		Empleado empleado = new Empleado();
+		empleado.setFechaIngreso(null);
+		empleado.setSalario(new BigDecimal(550));
+		empleado.setCiudadano(ciudadano);
+
+		ciudadano.setEmpleado(empleado);
+
+		Empleado empleado1 = this.iCiudadanoService.buscarPorCedula("1750");
+		System.out.println(empleado1);
 
 	}
 
