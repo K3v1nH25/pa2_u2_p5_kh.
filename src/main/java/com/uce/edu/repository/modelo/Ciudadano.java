@@ -148,4 +148,5 @@ public class Ciudadano {
 				+ peso + ", genero=" + genero + ", empleo=" + empleo + ", empleado=" + empleado + "]";
 	}
 
+	////
 }

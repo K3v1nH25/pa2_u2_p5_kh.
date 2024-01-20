@@ -18,19 +18,19 @@ public interface ICiudadanoService {
 
 	public Ciudadano buscarPorCedulaCiu(String cedula);
 
-	public Empleado buscarPorNombre(String nombre);
+	public Ciudadano buscarPorNombre(String nombre);
 
 	public Ciudadano buscarPorApellido(String apellido);
 
-	public Empleado buscarPorCodigo(String codigo);
+	public Ciudadano buscarPorCodigo(String codigo);
 
 	public Ciudadano buscarPorFechaNacimiento(LocalDateTime fechaNacimiento);
 
-	public Empleado buscarPorEstatura(String estatura);
+	public Ciudadano buscarPorEstatura(String estatura);
 
 	public Ciudadano buscarPorPeso(String peso);
 
-	public Empleado buscarPorGenero(String genero);
+	public Ciudadano buscarPorGenero(String genero);
 
 	public Ciudadano buscarPorEmpleo(String empleo);
 

@@ -79,21 +79,17 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 		Ciudadano ciudadano5 = this.iCiudadanoService.buscarPorEmpleo("Jefe de bodega");
 		System.out.println(ciudadano5);
 
-/////////////////////////////////////////////////////////////////////////////////////
+		Ciudadano ciudadano6 = this.iCiudadanoService.buscarPorNombre("Aylin");
+		System.out.println(ciudadano6);
 
-		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1724");
+		Ciudadano ciudadano7 = this.iCiudadanoService.buscarPorCodigo("1A");
+		System.out.println(ciudadano7);
 
-		System.out.println(ciudadano);
+		Ciudadano ciudadano8 = this.iCiudadanoService.buscarPorEstatura("1.80");
+		System.out.println(ciudadano8);
 
-		Empleado empleado = new Empleado();
-		empleado.setFechaIngreso(null);
-		empleado.setSalario(new BigDecimal(550));
-		empleado.setCiudadano(ciudadano);
-
-		ciudadano.setEmpleado(empleado);
-
-		Empleado empleado1 = this.iCiudadanoService.buscarPorCedula("1750");
-		System.out.println(empleado1);
+		Ciudadano ciudadano9 = this.iCiudadanoService.buscarPorGenero("Femenino");
+		System.out.println(ciudadano9);
 
 	}
 

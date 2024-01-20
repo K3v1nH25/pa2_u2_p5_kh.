@@ -55,7 +55,7 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 	}
 
 	@Override
-	public Empleado buscarPorNombre(String nombre) {
+	public Ciudadano buscarPorNombre(String nombre) {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorNombre(nombre);
 	}
@@ -67,7 +67,7 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 	}
 
 	@Override
-	public Empleado buscarPorCodigo(String codigo) {
+	public Ciudadano buscarPorCodigo(String codigo) {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorCodigo(codigo);
 	}
@@ -79,7 +79,7 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 	}
 
 	@Override
-	public Empleado buscarPorEstatura(String estatura) {
+	public Ciudadano buscarPorEstatura(String estatura) {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorEstatura(estatura);
 	}
@@ -91,7 +91,7 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 	}
 
 	@Override
-	public Empleado buscarPorGenero(String genero) {
+	public Ciudadano buscarPorGenero(String genero) {
 		// TODO Auto-generated method stub
 		return this.ciudadanoRepository.seleccionarPorGenero(genero);
 	}

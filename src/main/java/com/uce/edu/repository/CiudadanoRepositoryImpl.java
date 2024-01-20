@@ -67,10 +67,10 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 	}
 
 	@Override
-	public Empleado seleccionarPorNombre(String nombre) {
+	public Ciudadano seleccionarPorNombre(String nombre) {
 		// TODO Auto-generated method stub
-		TypedQuery<Empleado> myQuery = this.entityManager
-				.createQuery("SELECT e FROM Empleado e WHERE e.ciudadano.nombre = :nombre", Empleado.class);
+		TypedQuery<Ciudadano> myQuery = this.entityManager
+				.createQuery("SELECT c FROM Ciudadano c WHERE c.nombre = :nombre", Ciudadano.class);
 		myQuery.setParameter("nombre", nombre);
 		return myQuery.getSingleResult();
 	}
@@ -85,10 +85,10 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 	}
 
 	@Override
-	public Empleado seleccionarPorCodigo(String codigo) {
+	public Ciudadano seleccionarPorCodigo(String codigo) {
 		// TODO Auto-generated method stub
-		TypedQuery<Empleado> myQuery = this.entityManager
-				.createQuery("SELECT e FROM Empleado e WHERE e.ciudadano.codigo = :codigo", Empleado.class);
+		TypedQuery<Ciudadano> myQuery = this.entityManager
+				.createQuery("SELECT c FROM Ciudadano c WHERE c.codigo = :codigo", Ciudadano.class);
 		myQuery.setParameter("codigo", codigo);
 		return myQuery.getSingleResult();
 	}
@@ -103,10 +103,10 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 	}
 
 	@Override
-	public Empleado seleccionarPorEstatura(String estatura) {
+	public Ciudadano seleccionarPorEstatura(String estatura) {
 		// TODO Auto-generated method stub
-		TypedQuery<Empleado> myQuery = this.entityManager
-				.createQuery("SELECT e FROM Empleado e WHERE e.ciudadano.estatura = :estatura", Empleado.class);
+		TypedQuery<Ciudadano> myQuery = this.entityManager
+				.createQuery("SELECT c FROM Ciudadano c WHERE c.estatura = :estatura", Ciudadano.class);
 		myQuery.setParameter("estatura", estatura);
 		return myQuery.getSingleResult();
 	}
@@ -121,10 +121,10 @@ public class CiudadanoRepositoryImpl implements ICiudadanoRepository {
 	}
 
 	@Override
-	public Empleado seleccionarPorGenero(String genero) {
+	public Ciudadano seleccionarPorGenero(String genero) {
 		// TODO Auto-generated method stub
-		TypedQuery<Empleado> myQuery = this.entityManager
-				.createQuery("SELECT e FROM Empleado e WHERE e.ciudadano.genero = :genero", Empleado.class);
+		TypedQuery<Ciudadano> myQuery = this.entityManager
+				.createQuery("SELECT c FROM Ciudadano c WHERE c.genero = :genero", Ciudadano.class);
 		myQuery.setParameter("genero", genero);
 		return myQuery.getSingleResult();
 	}

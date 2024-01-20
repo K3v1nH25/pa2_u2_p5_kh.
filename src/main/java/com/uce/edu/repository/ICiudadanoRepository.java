@@ -19,19 +19,19 @@ public interface ICiudadanoRepository {
 
 	public Ciudadano seleccionarPorCedulaCiud(String cedula);
 
-	public Empleado seleccionarPorNombre(String nombre);
+	public Ciudadano seleccionarPorNombre(String nombre);
 
 	public Ciudadano seleccionarPorApellido(String apellido);
 
-	public Empleado seleccionarPorCodigo(String codigo);
+	public Ciudadano seleccionarPorCodigo(String codigo);
 
 	public Ciudadano seleccionarPorFechaNacimiento(LocalDateTime fechaNacimiento);
 
-	public Empleado seleccionarPorEstatura(String estatura);
+	public Ciudadano seleccionarPorEstatura(String estatura);
 
 	public Ciudadano seleccionarPorPeso(String peso);
 
-	public Empleado seleccionarPorGenero(String genero);
+	public Ciudadano seleccionarPorGenero(String genero);
 
 	public Ciudadano seleccionarPorEmpleo(String empleo);
 
