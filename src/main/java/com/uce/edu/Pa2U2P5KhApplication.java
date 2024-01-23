@@ -35,9 +35,6 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	@Autowired
 	private ICiudadanoService iCiudadanoService;
 
-	@Autowired
-	private IEmpleadoService empleadoService;
-
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5KhApplication.class, args);
 	}
@@ -46,50 +43,35 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 
-		/*
-		 * Ciudadano ciud = new Ciudadano(); ciud.setNombre("kevin");
-		 * ciud.setApellido("Hurtado"); ciud.setCedula("1724"); ciud.setCodigo("1A");
-		 * ciud.setFechaNacimeinto(LocalDateTime.of(1997, 9, 9, 10, 0));
-		 * ciud.setEstatura("1.80"); ciud.setPeso("50"); ciud.setGenero("Masculino");
-		 * ciud.setEmpleo("Jefe de bodega");
-		 * 
-		 * Ciudadano ciud2 = new Ciudadano(); ciud2.setNombre("Aylin");
-		 * ciud2.setApellido("Mero"); ciud2.setCedula("1750"); ciud2.setCodigo("2B");
-		 * ciud2.setFechaNacimeinto(LocalDateTime.of(2000, 6, 7, 8, 0));
-		 * ciud2.setEstatura("1.50"); ciud2.setPeso("45"); ciud2.setGenero("Femenino");
-		 * ciud2.setEmpleo("Jefe de caja");
-		 * 
-		 * this.iCiudadanoService.guardar(ciud); this.iCiudadanoService.guardar(ciud2);
-		 */
+		// Criteria API Query
+		Ciudadano ciud = this.iCiudadanoService.buscarPorApe("Hurtado");
+		System.out.println(ciud);
 
-		////////////////////////////////////////////
+		Ciudadano ciud1 = this.iCiudadanoService.buscarPorCriteria("kevin", "Hurtado", "1724");
+		System.out.println(ciud1);
 
-		Ciudadano ciudadano = this.iCiudadanoService.buscarPorCedulaCiu("1724");
-		System.out.println(ciudadano);
+		Ciudadano ciud2 = this.iCiudadanoService.buscarPorCriteria("kevin", "Hurtado", "0522");
+		System.out.println(ciud2);
 
-		Ciudadano ciudadano2 = this.iCiudadanoService.buscarPorApellido("Mero");
-		System.out.println(ciudadano2);
+		// Hibernate: select
+		// c1_0.ciud_id,c1_0.ciud_apellido,c1_0.ciud_cedula,c1_0.ciud_codigo,c1_0.ciud_empleo,c1_0.ciud_estatura,c1_0.ciud_fecha_nacimeinto,c1_0.ciud_genero,c1_0.ciud_nombre,c1_0.ciud_peso
+		// from ciudadano c1_0 where c1_0.ciud_nombre=?
+		Ciudadano ciud3 = this.iCiudadanoService.buscarPorCriteria("kevin", "Hurtado", "1724");
+		System.out.println(ciud3);
 
-		Ciudadano ciudadano3 = this.iCiudadanoService.buscarPorFechaNacimiento(LocalDateTime.of(1997, 9, 9, 10, 0));
-		System.out.println(ciudadano3);
+		System.out.println("Criteria API Query AND OR");
 
-		Ciudadano ciudadano4 = this.iCiudadanoService.buscarPorPeso("45");
-		System.out.println(ciudadano4);
+		// Hibernate: select
+		// c1_0.ciud_id,c1_0.ciud_apellido,c1_0.ciud_cedula,c1_0.ciud_codigo,c1_0.ciud_empleo,c1_0.ciud_estatura,c1_0.ciud_fecha_nacimeinto,c1_0.ciud_genero,c1_0.ciud_nombre,c1_0.ciud_peso
+		// from ciudadano c1_0 where c1_0.ciud_nombre=? or c1_0.ciud_apellido=?
+		Ciudadano ciud4 = this.iCiudadanoService.buscarPorCriteriaAndOr("kevin", "Hurtado", "1724");
+		System.out.println(ciud4);
 
-		Ciudadano ciudadano5 = this.iCiudadanoService.buscarPorEmpleo("Jefe de bodega");
-		System.out.println(ciudadano5);
-
-		Ciudadano ciudadano6 = this.iCiudadanoService.buscarPorNombre("Aylin");
-		System.out.println(ciudadano6);
-
-		Ciudadano ciudadano7 = this.iCiudadanoService.buscarPorCodigo("1A");
-		System.out.println(ciudadano7);
-
-		Ciudadano ciudadano8 = this.iCiudadanoService.buscarPorEstatura("1.80");
-		System.out.println(ciudadano8);
-
-		Ciudadano ciudadano9 = this.iCiudadanoService.buscarPorGenero("Femenino");
-		System.out.println(ciudadano9);
+		// Hibernate: select
+		// c1_0.ciud_id,c1_0.ciud_apellido,c1_0.ciud_cedula,c1_0.ciud_codigo,c1_0.ciud_empleo,c1_0.ciud_estatura,c1_0.ciud_fecha_nacimeinto,c1_0.ciud_genero,c1_0.ciud_nombre,c1_0.ciud_peso
+		// from ciudadano c1_0 where c1_0.ciud_nombre=? and c1_0.ciud_apellido=?
+		Ciudadano ciud5 = this.iCiudadanoService.buscarPorCriteriaAndOr("kevin", "Hurtado", "0522");
+		System.out.println(ciud5);
 
 	}
 
