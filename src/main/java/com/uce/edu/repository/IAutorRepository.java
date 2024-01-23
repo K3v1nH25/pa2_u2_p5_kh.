@@ -12,4 +12,14 @@ public interface IAutorRepository {
 
 	public void eliminar(Integer id);
 
+	public Autor seleccionarPorNombre(String nombre);
+
+	public Autor seleccionarPorApellido(String apellido);
+
+	public Autor seleccionarPorEditorial(String editorial);
+
+	public Autor seleccionarPorNumeroPremios(String numeroPremios);
+
+	public Autor seleccionarPorNacionalidad(String nacionalidad);
+
 }

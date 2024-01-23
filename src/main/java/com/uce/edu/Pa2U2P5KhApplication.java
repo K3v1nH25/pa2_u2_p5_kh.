@@ -1,26 +1,12 @@
 package com.uce.edu;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.uce.edu.repository.modelo.Autor2;
-import com.uce.edu.repository.modelo.AutorLibro;
-import com.uce.edu.repository.modelo.Ciudadano;
-import com.uce.edu.repository.modelo.Empleado;
-import com.uce.edu.repository.modelo.Libro;
-import com.uce.edu.repository.modelo.Libro2;
-import com.uce.edu.service.ICiudadanoService;
-import com.uce.edu.service.IEmpleadoService;
-import com.uce.edu.service.ILibroService;
+import com.uce.edu.repository.modelo.Autor;
+import com.uce.edu.service.IAutorService;
 
 @SpringBootApplication
 public class Pa2U2P5KhApplication implements CommandLineRunner {
@@ -33,7 +19,7 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	// 3. Criteria API Query
 
 	@Autowired
-	private ICiudadanoService iCiudadanoService;
+	private IAutorService iAutorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P5KhApplication.class, args);
@@ -43,35 +29,32 @@ public class Pa2U2P5KhApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 
-		// Criteria API Query
-		Ciudadano ciud = this.iCiudadanoService.buscarPorApe("Hurtado");
-		System.out.println(ciud);
+		/*
+		 * Autor autor = new Autor(); autor.setNombre("Kevin");
+		 * autor.setApellido("Hurtado"); autor.setEditorial("Planeta");
+		 * autor.setNumeroPremios("Premio nobel"); autor.setNacionalidad("Ecuatoriano");
+		 * this.iAutorService.guardar(autor);
+		 * 
+		 * Autor autor2 = new Autor(); autor2.setNombre("Aylin");
+		 * autor2.setApellido("Mero"); autor2.setEditorial("Anagrama");
+		 * autor2.setNumeroPremios("Premio Cervantes");
+		 * autor2.setNacionalidad("Colombiano"); this.iAutorService.guardar(autor2);
+		 */
 
-		Ciudadano ciud1 = this.iCiudadanoService.buscarPorCriteria("kevin", "Hurtado", "1724");
-		System.out.println(ciud1);
+		Autor auto = this.iAutorService.buscarPorNombre("Kevin");
+		System.out.println(auto);
 
-		Ciudadano ciud2 = this.iCiudadanoService.buscarPorCriteria("kevin", "Hurtado", "0522");
-		System.out.println(ciud2);
+		Autor auto2 = this.iAutorService.buscarPorApellido("Mero");
+		System.out.println(auto2);
 
-		// Hibernate: select
-		// c1_0.ciud_id,c1_0.ciud_apellido,c1_0.ciud_cedula,c1_0.ciud_codigo,c1_0.ciud_empleo,c1_0.ciud_estatura,c1_0.ciud_fecha_nacimeinto,c1_0.ciud_genero,c1_0.ciud_nombre,c1_0.ciud_peso
-		// from ciudadano c1_0 where c1_0.ciud_nombre=?
-		Ciudadano ciud3 = this.iCiudadanoService.buscarPorCriteria("kevin", "Hurtado", "1724");
-		System.out.println(ciud3);
+		Autor auto3 = this.iAutorService.buscarPorEditorial("Planeta");
+		System.out.println(auto3);
 
-		System.out.println("Criteria API Query AND OR");
+		Autor auto4 = this.iAutorService.buscarPorNumeroPremios("Premio Cervantes");
+		System.out.println(auto4);
 
-		// Hibernate: select
-		// c1_0.ciud_id,c1_0.ciud_apellido,c1_0.ciud_cedula,c1_0.ciud_codigo,c1_0.ciud_empleo,c1_0.ciud_estatura,c1_0.ciud_fecha_nacimeinto,c1_0.ciud_genero,c1_0.ciud_nombre,c1_0.ciud_peso
-		// from ciudadano c1_0 where c1_0.ciud_nombre=? or c1_0.ciud_apellido=?
-		Ciudadano ciud4 = this.iCiudadanoService.buscarPorCriteriaAndOr("kevin", "Hurtado", "1724");
-		System.out.println(ciud4);
-
-		// Hibernate: select
-		// c1_0.ciud_id,c1_0.ciud_apellido,c1_0.ciud_cedula,c1_0.ciud_codigo,c1_0.ciud_empleo,c1_0.ciud_estatura,c1_0.ciud_fecha_nacimeinto,c1_0.ciud_genero,c1_0.ciud_nombre,c1_0.ciud_peso
-		// from ciudadano c1_0 where c1_0.ciud_nombre=? and c1_0.ciud_apellido=?
-		Ciudadano ciud5 = this.iCiudadanoService.buscarPorCriteriaAndOr("kevin", "Hurtado", "0522");
-		System.out.println(ciud5);
+		Autor auto5 = this.iAutorService.buscarPorNacionalidad("Ecuatoriano");
+		System.out.println(auto5);
 
 	}
 

@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -25,11 +26,20 @@ public class Autor {
 	@Column(name = "auto_nombre")
 	private String nombre;
 
+	@Column(name = "auto_apellido")
+	private String apellido;
+
+	@Column(name = "auto_editorial")
+	private String editorial;
+
+	@Column(name = "auto_numero_premios")
+	private String numeroPremios;
+
 	@Column(name = "auto_nacionalidad")
 	private String nacionalidad;
 
-	@ManyToMany(mappedBy = "autores", cascade = CascadeType.ALL)
-	private Set<Libro> libros;
+	@OneToOne(mappedBy = "autor")
+	private Libro libro;
 
 	// set y get
 
@@ -49,6 +59,30 @@ public class Autor {
 		this.nombre = nombre;
 	}
 
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public String getEditorial() {
+		return editorial;
+	}
+
+	public void setEditorial(String editorial) {
+		this.editorial = editorial;
+	}
+
+	public String getNumeroPremios() {
+		return numeroPremios;
+	}
+
+	public void setNumeroPremios(String numeroPremios) {
+		this.numeroPremios = numeroPremios;
+	}
+
 	public String getNacionalidad() {
 		return nacionalidad;
 	}
@@ -57,12 +91,18 @@ public class Autor {
 		this.nacionalidad = nacionalidad;
 	}
 
-	public Set<Libro> getLibro() {
-		return libros;
+	public Libro getLibro() {
+		return libro;
 	}
 
-	public void setLibro(Set<Libro> libros) {
-		this.libros = libros;
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
+	@Override
+	public String toString() {
+		return "Autor [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", editorial=" + editorial
+				+ ", numeroPremios=" + numeroPremios + ", nacionalidad=" + nacionalidad + ", libro=" + libro + "]";
 	}
 
 }
